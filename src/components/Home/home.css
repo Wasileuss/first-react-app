@@ -1,0 +1,109 @@
+@import url('../../index.css');
+
+.home {
+    position: relative;
+    border: 1px solid #bebebe;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    flex: 0 1 900px;
+}
+
+.home__container {
+    display: flex;
+}
+
+.home__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0 1 600px;
+}
+
+.home__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 30px;
+    color: var(--color-white);
+    padding: 30px;
+    line-height: 1.4;
+    background-color: rgba(0, 0, 0, 0.4);
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.home__info p:first-child {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.home__info span {
+    font-weight: 700;
+    color: var(--color-green);
+    text-transform: uppercase;
+}
+
+.home__logo {
+    position: relative;
+    width: calc(100px + 10vw);
+}
+
+.home__svg {
+    border-radius: 10px;
+    border: 2px solid var(--color-blue);
+}
+
+.home__logo2 {
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.home__logo2:hover .home__svg {
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--color-white);
+    transform: scale(1.03);
+}
+  
+@media (prefers-reduced-motion: no-preference) {
+    .home__logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 1024.98px) {
+    .home__content {
+        flex: 1 1 auto;
+    }
+    .home__info {
+        position: relative;
+        z-index: 2;
+        margin-right: 0;
+    }
+    .home__logo {
+        position: absolute;
+        top: 30%;
+        left: 35%;
+    }
+}
+
+@media screen and (max-width: 768.98px) {
+    .home {
+        flex: 1 1 auto;
+    }
+    .home__logo {
+        position: absolute;
+        top: 40%;
+        left: 35%;
+    }
+}

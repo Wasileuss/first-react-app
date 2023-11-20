@@ -1,0 +1,125 @@
+@import url('../../index.css');
+
+.note{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #bebebe;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    flex: 0 1 900px;
+}
+
+.note__content {
+    margin-bottom: 20px;
+}
+
+.note__enter {
+    display: flex;
+    flex-direction: row;
+}
+
+.note__btn {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--color-white);
+    background-color: var(--color-green);
+    margin-right: 10px;
+}
+
+.note__btn:hover:first-child {
+    background-color: var(--color-blue);
+}
+
+.note__btn--clear:hover {
+    background-color: red;
+}
+
+.note__btn--modal {
+    border-radius: 5px;
+}
+
+.notes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notes__title,
+.notes__msg {
+    font-size: 24px;
+    font-weight: 700;
+    color: #a2ff00;
+    margin-bottom: 15px;
+}
+
+.notes__list {
+    width: 100%;
+}
+
+.notes__content {
+    padding: 3px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notes__input {
+    display: flex;
+    width: 100%;
+    flex: 1 1 auto;
+}
+
+.notes__textarea {
+    flex: 1 1 auto;
+    padding: 3px 5px;
+    width: 90%;
+    overflow: auto;
+}
+
+.notes__textarea::-webkit-scrollbar {
+    width: 5px;
+}
+
+.notes__textarea:focus {
+    outline: none;
+}
+
+.notes__btn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notes__btn  button{
+    width: 50px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: var(--color-white);
+    background-color: var(--color-green);
+    margin-right: 10px;
+}
+
+.notes__btn  button:last-child {
+    background-color: red;
+}
+
+.notes__btn  button:hover:first-child {
+    background-color: var(--color-blue);
+}
+
+.notes__btn  button:hover:last-child {
+    background-color: #ff00ae;
+}
+
+@media screen and (max-width: 768.98px) {
+    .note {
+        flex: 1 1 auto;
+    }
+    
+}

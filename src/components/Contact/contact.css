@@ -1,0 +1,132 @@
+@import url('../../index.css');
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts__content {
+    display: flex;
+}
+
+.users__list {
+    flex: 1 1 auto;
+    padding: 10px;
+}
+
+.users__add {
+   flex: 0 1 300px;
+   padding: 10px;
+}
+
+.edit {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit__user {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background-color: #00c3ff79;
+}
+
+.edit__icons svg {
+    width: 30px;
+    height: 30px;
+    color: var(--color-white);
+}
+
+.edit__icons {
+    display: flex;
+    flex-direction: row-reverse;
+    align-self: flex-end;
+    gap: 10px;
+}
+
+.icon__edit,
+.icon__delete {
+    border: 2px solid var(--color-white);
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.icon__edit:hover {
+    color: var(--color-green);
+    border: 2px solid var(--color-green);
+}
+
+.icon__delete:hover {
+    color: red;
+    border: 2px solid red;
+}
+
+.edit__info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--color-title);
+}
+
+.edit__first-name {
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.edit__last-name {
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.contacts__msg {
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #00c3ff79;
+}
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.contact__input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--color-green);
+}
+.contact__button {
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--color-green);
+    transition: all 0.3s;
+}
+
+.contact__button:hover {
+    background-color: var(--color-blue);
+    transform: scale(1.05);
+    color: var(--color-white);
+}
+
+@media screen and (max-width: 968.98px) {
+    .contacts__content {
+        flex-direction: column-reverse;
+    }
+    
+}

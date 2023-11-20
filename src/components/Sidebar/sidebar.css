@@ -1,0 +1,39 @@
+@import url('../../index.css');
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #bebebe;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    background: var(--color-bg);
+    min-width: 250px;
+    flex: 0 1 300px;
+    max-height: 520px;
+    height: 100%;
+}
+
+.time {
+    text-align: center;
+    background-color: var(--color-white);
+    border: 1px solid #bebebe;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-green);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768.98px) {
+   .time div {
+    display: inline-block;
+   }
+   .time  div:first-child {
+    margin-right: 20px;
+   }
+   .sidebar {
+       height: auto;
+   }
+}

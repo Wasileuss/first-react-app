@@ -1,0 +1,83 @@
+@import url('../../index.css');
+
+.pop-up {
+    align-self: center;
+}
+
+.pop-up__btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--color-white);
+    background-color: var(--color-green);
+}
+
+.pop-up__btn:hover {
+    background-color: red;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.modal__close {
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    width: 25px;
+    color: var(--color-white);
+}
+
+.modal__close:active {
+    color: var(--color-blue);
+}
+
+.modal__content {
+    max-width: 450px;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: var(--color-bg);
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    border-radius: 15px;
+}
+.modal__title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.modal__buttons button {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: var(--color-white);
+}
+.modal__save {
+    margin-bottom: 10px;
+    background-color: var(--color-green);
+}
+.modal__save:hover {
+    background-color: #1ac499;
+}
+.modal__discard {
+    background-color: #ababab;
+}
+.modal__discard:hover {
+    background-color: #8b8b8b;
+}

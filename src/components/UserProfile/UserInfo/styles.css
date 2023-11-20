@@ -1,0 +1,94 @@
+@import url(../../../index.css);
+
+.user-info {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.user-info__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    color: var(--color-title);
+    background: #bcc5cd;
+    padding: 20px 10px;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 20px;
+}
+.user-info__title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 600;
+}
+.user-info__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.user-info__item {
+    display: flex;
+    justify-content: space-between;
+}
+.user-info__input {
+    width: 70%;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.user-info__content__close svg {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-title);
+}
+.user-info__content__close svg:hover {
+    cursor: pointer;
+    color: var(--color-blue);
+}
+.user-info__content button {
+    border-radius: 10px;
+}
+.user-info__done {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: var(--color-bg);
+}
+.user-info__done svg {
+    width: 30px;
+    height: 30px;
+    color: var(--color-title);
+}
+.user-info__done:hover {
+    cursor: pointer;
+    background-color: var(--color-green);
+}  
+
+@media screen and (max-width: 767.98px) {
+    .user-info__content {
+        max-width: 450px;
+    }
+}
+@media screen and (max-width: 575.98px) {
+    .user-info__content {
+        max-width: 300px;
+    }
+    
+}

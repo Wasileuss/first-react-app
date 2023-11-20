@@ -1,0 +1,69 @@
+@import url('../../index.css');
+
+.footer {
+    background: #404040;
+    color: white;
+    padding: 20px;
+    font-size: 16px;
+}
+
+.footer__container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 300px;
+}
+
+.social__icon {
+    width: 30px;
+}
+
+.social__link:not(:last-child) {
+    margin-right: 10px;
+}
+
+.social__link:hover {
+    transform: scale(1.3);
+}
+
+.footer__copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 900px;
+}
+
+.copyright p:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.copyright__link {
+    font-size: 18px;
+    color: var(--color-green);
+}
+
+.copyright__link:hover {
+    color: var(--color-blue);
+}
+
+@media screen and (max-width: 768.98px) {
+    .footer__container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer__copyright {
+        text-align: center;
+        flex: 0 1 auto;
+    }
+    .social {
+        margin-bottom: 15px;
+        flex: 0 1 auto;
+    }
+}

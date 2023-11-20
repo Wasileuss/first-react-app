@@ -1,0 +1,138 @@
+@import url('../../index.css');
+
+
+.todo {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #bebebe;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(220, 218, 152)
+}
+.todo__container {
+    display: flex;
+    flex: 1 1 auto;
+}
+.todo__create {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 200px;
+    margin-right: 20px;
+}
+.todo__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto 10px;
+}
+.todo__img {
+    max-width: 200px;
+    width: 100%;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.form__input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.form__msg,
+.todos__msg {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-second);
+    margin-bottom: 10px;
+}
+.todo__img img {
+    width: 100%;
+}
+
+.form__btns {
+    display: flex;
+    align-items: center;
+}
+
+.form__btns button {
+    transition: all 0.3s;
+}
+
+.form__btns button:not(:last-child) {
+    margin-right: 10px;
+}
+
+.form__btns button:hover {
+    color: var(--color-white);
+    background-color: var(--color-blue);
+}
+
+.btn__new,
+.btn__cancel,
+.btn__clear {
+    background-color: var(--color-green);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.todos {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 20px;
+} 
+.todos {
+    flex: 0 1 700px;
+}
+
+
+.task li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #bebebe;
+    background: #f7f7f7;
+}
+
+.task .task__complete  {
+    text-decoration: line-through;
+    background-color: var(--color-bg);
+    color: var(--color-white);
+}
+
+.task__btns button {
+    border-radius: 5px;
+    padding: 3px 7px;
+}
+
+.task__btns button:not(:last-child) {
+    margin-right: 10px;
+}
+
+.but__edit {
+    display: none;
+}
+
+.but__edit--active {
+    background-color: #bebebe;
+}
+.but__delete {
+    color: var(--color-white);
+    background-color: red;
+}
+.but__delete--active {
+    background-color: #c57070;
+}
+.but__check {
+    background-color: green;
+    color: var(--color-white);
+}
+.but__uncheck {
+    background-color: orange;
+    color: var(--color-white);
+}
