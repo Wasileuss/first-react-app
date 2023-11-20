@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/first-react-app/static/css/main.3681f079.css",
+    "main.js": "/first-react-app/static/js/main.2aacb9dc.js",
+    "static/media/contact-bg.webp": "/first-react-app/static/media/contact-bg.9690f25cf3e8273cc3e3.webp",
+    "static/media/inst.svg": "/first-react-app/static/media/inst.9bec54c4139d6219f1e9adf6385c48bb.svg",
+    "static/media/note-bg.webp": "/first-react-app/static/media/note-bg.7f6ccc85db42088306a9.webp",
+    "static/media/profile-bg.webp": "/first-react-app/static/media/profile-bg.a4fd6dee1dae43732cf7.webp",
+    "static/media/home-bg.webp": "/first-react-app/static/media/home-bg.8e61ff5bef3aadac04e2.webp",
+    "static/media/todo-bg.webp": "/first-react-app/static/media/todo-bg.4ceb523be0d50d4b76d8.webp",
+    "static/media/repeat-bg.webp": "/first-react-app/static/media/repeat-bg.1b557b2e3faa5bdcdf98.webp",
+    "static/media/weather.webp": "/first-react-app/static/media/weather.fa75dd6ec80bbee990b7.webp",
+    "static/media/page-404.jpg": "/first-react-app/static/media/page-404.1a651b68af9af15ff615.jpg",
+    "static/media/logo-cbs.png": "/first-react-app/static/media/logo-cbs.4ac31198a3f242fcca2e.png",
+    "static/media/dev.webp": "/first-react-app/static/media/dev.205dae268300d5491192.webp",
+    "static/media/logo-react.svg": "/first-react-app/static/media/logo-react.c8762d9e996a22cda42d57b36684e599.svg",
+    "static/media/fb.svg": "/first-react-app/static/media/fb.e6049394da19035563ae087eb044ad83.svg",
+    "static/media/gh.svg": "/first-react-app/static/media/gh.93679b15969691377e79631577d1e2be.svg",
+    "static/media/disc.svg": "/first-react-app/static/media/disc.bf6454d5f2b206a7fcd7c196adba6ac0.svg",
+    "static/media/ld.svg": "/first-react-app/static/media/ld.009774efaee60ce8702ea5236d6085d3.svg",
+    "static/media/eye-hide.svg": "/first-react-app/static/media/eye-hide.6791fbb4b1ff28329acbe5af6a3c69f1.svg",
+    "index.html": "/first-react-app/index.html",
+    "static/media/eye-show.svg": "/first-react-app/static/media/eye-show.adf855e31121adba304dc21283b2cbfa.svg",
+    "main.3681f079.css.map": "/first-react-app/static/css/main.3681f079.css.map",
+    "main.2aacb9dc.js.map": "/first-react-app/static/js/main.2aacb9dc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3681f079.css",
+    "static/js/main.2aacb9dc.js"
+  ]
+}
