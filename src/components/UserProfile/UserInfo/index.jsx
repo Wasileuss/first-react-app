@@ -1,130 +1,142 @@
-import { useState } from "react";
-import { observer } from "mobx-react";
-import { Link } from 'react-router-dom';
-import { SlClose } from "react-icons/sl";
-import { AiOutlineFileDone } from "react-icons/ai";
+import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { SlClose } from 'react-icons/sl';
+import { AiOutlineFileDone } from 'react-icons/ai';
 
-import { userProfile } from "../../../store/userProfile";
+import { LIMITS, validateAge, validateName, validatePhone } from '../../../lib/validation';
+import { PROFILE_FIELDS, useProfile } from '../profile';
 
 import './styles.css';
 
-const UserInfo = observer(() => {
-  const [userInfo, setUserInfo] = useState({...userProfile.userProfile});
-  console.log(userInfo);
+function validate(values) {
+  const nick = values.nick_name.trim();
+  return {
+    first_name: validateName(values.first_name, 'First name', { required: false }),
+    last_name: validateName(values.last_name, 'Last name', { required: false }),
+    nick_name: nick.length > LIMITS.nameMax ? `Nickname must be at most ${LIMITS.nameMax} characters.` : '',
+    phone: validatePhone(values.phone, { required: false }),
+    age: validateAge(values.age),
+    country: validateName(values.country, 'Country', { required: false }),
+    city: validateName(values.city, 'City', { required: false }),
+    gender: '',
+  };
+}
 
-  const changeUserInfo = (e) => {
-    setUserInfo({...userInfo, [e.target.name]: e.target.value})
-  }
+export default function UserInfo() {
+  const navigate = useNavigate();
+  const [profile, setProfile] = useProfile();
+  const [values, setValues] = useState(profile);
+  const [submitted, setSubmitted] = useState(false);
+  const [saveError, setSaveError] = useState('');
+  const dialogRef = useRef(null);
 
-  const updateUserInfo = () => {
-    userProfile.setUserProfile({...userInfo})
-  }
+  // Native modal dialog: focus trap, Escape and inert background for free.
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (dialog && !dialog.open) dialog.showModal();
+    return () => dialog?.open && dialog.close();
+  }, []);
+
+  const errors = validate(values);
+  const close = () => navigate('/profile');
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setValues((v) => ({ ...v, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSubmitted(true);
+    const firstInvalid = PROFILE_FIELDS.find((f) => errors[f.name]);
+    if (firstInvalid) {
+      document.getElementById(`profile-${firstInvalid.name}`)?.focus();
+      return;
+    }
+    const trimmed = Object.fromEntries(Object.entries(values).map(([k, v]) => [k, v.trim()]));
+    const error = setProfile(trimmed);
+    if (error) {
+      setSaveError(error);
+      return;
+    }
+    close();
+  };
 
   return (
-    <div className='user-info'>
-      <div className='user-info__content'>
-        <Link to="/profile">
-          <div className='user-info__content__close'>
-            <SlClose />
-          </div>
-        </Link>
-        <h2 className="user-info__title">
-          User profile
-        </h2>
-        <ul className="user-info__list">
-          <li className="user-info__item">
-            <label htmlFor="first_name">first name</label>
-            <input className="user-info__input"
-              type="text"
-              name="first_name"
-              value={userInfo.first_name}
-              onChange={changeUserInfo}
-            />
-          </li>
-          <li className="user-info__item">
-            <label htmlFor="last_name">last name</label>
-            <input className="user-info__input"
-              type="text"
-              name="last_name"
-              value={userInfo.last_name}
-              onChange={changeUserInfo}
-            />
-          </li>
-          <li className="user-info__item">
-            <label htmlFor="nick_name">nick name</label>
-            <input className="user-info__input"
-              type="text"
-              name="nick_name"
-              value={userInfo.nick_name}
-              onChange={changeUserInfo}
-            />
-          </li>
-          <li className="user-info__item">
-            <label htmlFor="email">email</label>
-            <input className="user-info__input"
-              type="email"
-              name="email"
-              value={userInfo.email}
-              onChange={changeUserInfo}
-            />
-          </li>
-          <li className="user-info__item">
-            <label htmlFor="phone">phone</label>
-            <input className="user-info__input"
-              type="number"
-              name="phone"
-              value={userInfo.phone}
-              onChange={changeUserInfo}
-            />
-          </li>
-          <li className="user-info__item">
-            <label htmlFor="gender">gender</label>
-            <input className="user-info__input"
-              type="text"
-              name="gender"
-              value={userInfo.gender}
-              onChange={changeUserInfo}
-            />
-          </li>
-          <li className="user-info__item">
-            <label htmlFor="age">age</label>
-            <input className="user-info__input"
-              type="text"
-              name="age"
-              value={userInfo.age}
-              onChange={changeUserInfo}
-            />
-          </li>
-          <li className="user-info__item">
-            <label htmlFor="country">country</label>
-            <input className="user-info__input"
-              type="text"
-              name="country"
-              value={userInfo.country}
-              onChange={changeUserInfo}
-            />
-          </li>
-          <li className="user-info__item">
-            <label htmlFor="city">city</label>
-            <input className="user-info__input"
-              type="text"
-              name="city"
-              value={userInfo.city}
-              onChange={changeUserInfo}
-            />
-          </li>
-        </ul>
-        <button onClick={updateUserInfo}>
-          <Link className="user-info__done" to="/profile">
-                <p>
-                    Update Profile
-                </p>
-                <AiOutlineFileDone />
-          </Link>
+    <dialog
+      ref={dialogRef}
+      className="user-info"
+      aria-labelledby="profile-title"
+      onCancel={(e) => {
+        e.preventDefault();
+        close();
+      }}
+    >
+      <form className="user-info__content" onSubmit={handleSubmit} noValidate>
+        <button type="button" className="user-info__close" aria-label="Close" onClick={close}>
+          <SlClose aria-hidden="true" />
         </button>
-      </div>
-    </div>
-  )
-});
-
-export default UserInfo;
+        <h2 id="profile-title" className="user-info__title">
+          Edit profile
+        </h2>
+        {saveError && (
+          <p className="user-info__alert" role="alert">
+            {saveError}
+          </p>
+        )}
+        <ul className="user-info__list">
+          {PROFILE_FIELDS.map((field) => {
+            const id = `profile-${field.name}`;
+            const error = submitted && errors[field.name];
+            const common = {
+              id,
+              name: field.name,
+              className: 'user-info__input',
+              value: values[field.name],
+              onChange: handleChange,
+              'aria-invalid': error ? true : undefined,
+              'aria-describedby': error ? `${id}-error` : undefined,
+            };
+            return (
+              <li className="user-info__item" key={field.name}>
+                <label htmlFor={id}>{field.label}</label>
+                <div className="user-info__control">
+                  {field.options ? (
+                    <select {...common}>
+                      {field.options.map((option) => (
+                        <option key={option} value={option}>
+                          {option || 'Not specified'}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <input
+                      {...common}
+                      type={field.type ?? 'text'}
+                      inputMode={field.inputMode}
+                      autoComplete={field.autoComplete}
+                      maxLength={field.name === 'age' ? 3 : LIMITS.nameMax}
+                    />
+                  )}
+                  {error && (
+                    <p id={`${id}-error`} className="user-info__error" role="alert">
+                      {error}
+                    </p>
+                  )}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+        <div className="user-info__actions">
+          <button type="button" className="user-info__cancel" onClick={close}>
+            Cancel
+          </button>
+          <button type="submit" className="user-info__done">
+            Save profile <AiOutlineFileDone aria-hidden="true" />
+          </button>
+        </div>
+      </form>
+    </dialog>
+  );
+}

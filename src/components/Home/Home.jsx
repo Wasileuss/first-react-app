@@ -1,6 +1,3 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import 'animate.css';
 
 import './home.css';
 
@@ -24,11 +21,16 @@ function Home() {
                         <p>Yes, it's not perfect! But I'm working on it. And you can see for yourself. Just recently I tried to display "Hello World! :)</p>
                         <p>And I did it all thanks to <span>CYBERBIONIC SYSTEMATICS</span> and my best mentor and friend <span>Said Bairam</span>.</p>
                     </div>
-                        <Link className="home__logo2 animate__animated animate__fadeInLeft" to="https://edu.cbsystematics.com/ua" target="_blank">
-                        <img className='home__svg' src={logo2} alt="logo" />
-                    </Link>
+                    <a
+                        className="home__logo2 animate__animated animate__fadeInLeft"
+                        href="https://edu.cbsystematics.com/ua"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img className='home__svg' src={logo2} alt="CyberBionic Systematics (opens in a new tab)" />
+                    </a>
                 </div>
-                <img src={logo} className="home__logo" alt="logo" />
+                <img src={logo} className="home__logo" alt="" />
             </div>
         </div>
     );

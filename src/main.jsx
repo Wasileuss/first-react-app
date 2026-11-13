@@ -1,16 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import Routing from './router/router';
 
 import './index.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routing />
-    </BrowserRouter>
-  </React.StrictMode>
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Routing />
+      </BrowserRouter>
+    </ErrorBoundary>
+  </StrictMode>,
 );

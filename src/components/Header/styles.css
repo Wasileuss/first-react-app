@@ -1,7 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
-@import url('../../index.css');
-  
 .header {
     background-color: #404040;
     position: sticky;
@@ -28,12 +24,12 @@
     display: none;
 }
 
-svg {
+.header__logo {
 	font-family: "Russo One", sans-serif;
     height: 80px;
 }
 
-svg text {
+.header__logo text {
 	animation: stroke 7s infinite alternate;
 	stroke-width: 1;
 	stroke: var(--color-blue);
@@ -99,6 +95,14 @@ svg text {
     margin-right: 20px;
 }
 
+.list__icon,
+.mobile__burger {
+    display: flex;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
 .list__icon svg {
     cursor: pointer;
     color: var(--color-blue);
@@ -129,7 +133,7 @@ svg text {
     .header__container {
         padding-left: 0;
     }
-    svg text {
+    .header__logo text {
         font-size: 45px;
     }
     .nav__link {
@@ -150,7 +154,7 @@ svg text {
     .header__container {
         margin-left: -10px;
     }
-    svg text {
+    .header__logo text {
         font-size: 40px;
     }
     .nav__list {
@@ -229,13 +233,14 @@ svg text {
         width: 100%;
         overflow: auto;
         transition: all 0.3s ease 0s;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(20, 20, 20, 0.95);
         padding: 20px;
         z-index: 2;
+        visibility: hidden;
         transition: all 0.3s ease 0s;
     }
     .list.active {
-        
+        visibility: visible;
         justify-content: flex-start;
         align-items: center;
         right: -20px;

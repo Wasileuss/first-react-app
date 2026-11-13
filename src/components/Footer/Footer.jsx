@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import './footer.css';
 
 import linkedin from '../../assets/icons/ld.svg';
@@ -7,39 +6,44 @@ import instagram from '../../assets/icons/inst.svg';
 import discord from '../../assets/icons/disc.svg';
 import github from '../../assets/icons/gh.svg';
 
-function Footer() {
-    const year = new Date().getFullYear();
-    return(
-        <div className="footer">
-            <div className="footer__container">
-                <div className="footer__social social">
-                    <Link to={"https://www.linkedin.com/in/vasyl-bezkorovainyi-ukraine/"} target="_blank" className="social__link">
-                        <img src={linkedin} alt="linkedin" className="social__icon" />
-                    </Link>
-                    <Link to={"https://github.com/Wasileuss/"} target="_blank" className="social__link">
-                        <img src={github} alt="linkedin" className="social__icon" />
-                    </Link>
-                    <Link to={"https://www.facebook.com/wasyl.bezkorowainyi/"} target="_blank" className="social__link">
-                        <img src={facebook} alt="linkedin" className="social__icon" />
-                    </Link>
-                    <Link to={"https://www.instagram.com/wasyl.lviv/"} target="_blank" className="social__link">
-                        <img src={instagram} alt="linkedin" className="social__icon" />
-                    </Link>
-                    <Link to={"https://discord.com/channels/wasyl.lviv/"} target="_blank" className="social__link">
-                        <img src={discord} alt="linkedin" className="social__icon" />
-                    </Link>
-                </div>
-                <div className="footer__copyright copyright">
-                    <p className="copyright__text">Copyright © {year} All rights reserved</p>
-                    <p>
-                        <Link to={"https://cv-vasyl-bezkorovainyi.netlify.app/"} target="_blank" className="copyright__link">
-                            Created by Wasileuss
-                        </Link>
-                    </p>
-                </div>
-            </div>
-        </div>
-    );
+const SOCIAL = [
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/vasyl-bezkorovainyi-ukraine/', icon: linkedin },
+  { name: 'GitHub', href: 'https://github.com/Wasileuss/', icon: github },
+  { name: 'Facebook', href: 'https://www.facebook.com/wasyl.bezkorowainyi/', icon: facebook },
+  { name: 'Instagram', href: 'https://www.instagram.com/wasyl.lviv/', icon: instagram },
+  { name: 'Discord', href: 'https://discord.com/channels/wasyl.lviv/', icon: discord },
+];
+
+// External links: plain <a> (not router <Link>) with rel="noopener noreferrer".
+function ExternalLink({ href, className, children, label }) {
+  return (
+    <a href={href} className={className} target="_blank" rel="noopener noreferrer" aria-label={label}>
+      {children}
+    </a>
+  );
 }
 
-export default Footer;
+export default function Footer() {
+  const year = new Date().getFullYear();
+  return (
+    <footer className="footer">
+      <div className="footer__container">
+        <div className="footer__social social">
+          {SOCIAL.map((item) => (
+            <ExternalLink key={item.name} href={item.href} className="social__link" label={`${item.name} (opens in a new tab)`}>
+              <img src={item.icon} alt="" className="social__icon" />
+            </ExternalLink>
+          ))}
+        </div>
+        <div className="footer__copyright copyright">
+          <p className="copyright__text">Copyright © {year} All rights reserved</p>
+          <p>
+            <ExternalLink href="https://cv-vasyl-bezkorovainyi.netlify.app/" className="copyright__link">
+              Created by Wasileuss
+            </ExternalLink>
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}

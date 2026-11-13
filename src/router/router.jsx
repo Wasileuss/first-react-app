@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import { observer } from 'mobx-react';
 
-import Login from '../components/Login';
-import SignUp from '../components/SignUp';
-import Layout from '../pages/Layout';
+import Login from '../components/Auth/Login';
+import SignUp from '../components/Auth/SignUp';
 import UserPage from '../pages/UserPage';
 import UserInfo from '../components/UserProfile/UserInfo';
-import AuthorizationPage from '../pages/AuthorizationPage';
 import Home from '../components/Home/Home';
 import Todo from '../components/Todo/Todo';
 import Note from '../components/Note/Note';
@@ -17,45 +15,61 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import Footer from '../components/Footer/Footer';
 import Page404 from '../components/Page404/Page404';
 
-import { users } from '../data/users';
-import { isUserLogin } from '../store/isUserLogin';
+import { auth } from '../store/auth';
 
-import '../index.css';
-import bg from "../assets/images/repeat-bg.webp";
+import bg from '../assets/images/repeat-bg.webp';
 
-const Routing = observer(() => {
-    useEffect(() => {
-        const email = localStorage.getItem("email");
-        const password = localStorage.getItem("password");
-        
-        users[email] === password && isUserLogin.setUserLogin();
-    }, [])
+/** Only for logged-in users; remembers where the visitor wanted to go. */
+const RequireAuth = observer(() => {
+  const location = useLocation();
 
-    return (
-        <>
-            <Navigation />
-            <main className='main' style={{background: `url(${bg})`}}>
-                <Sidebar />
-                <Routes>
-                    <Route element={isUserLogin.isUserLogin ? <Layout /> : <Navigate to={"/authorization/login"} />} path="/">
-                        <Route element={<UserPage />} path="/profile">
-                            <Route element={<UserInfo />} path="/profile/info" />
-                        </Route>
-                        <Route element={<Home />} path="/home" />
-                        <Route element={<Todo />} path="/todo" />
-                        <Route element={<Note />} path="/note" />
-                        <Route element={<Contact />} path="/contact" />
-                    </Route>
-                    <Route element={!isUserLogin.isUserLogin ? <AuthorizationPage /> : <Navigate to={"/home"} />} path="/authorization">
-                        <Route element={<Login />} path="/authorization/login"/>
-                        <Route element={<SignUp />} path="/authorization/signup"/>
-                    </Route>
-                    <Route element={<Page404 />} path="*"/>
-                </Routes>
-            </main>
-            <Footer />
-        </>
-    );
-})
+  useEffect(() => {
+    auth.checkSession();
+  }, [location.pathname]);
+
+  if (!auth.isAuthenticated) {
+    return <Navigate to="/authorization/login" replace state={{ from: location }} />;
+  }
+  return <Outlet />;
+});
+
+/** Login / sign-up pages: logged-in users are sent on to where they were going. */
+const GuestOnly = observer(() => {
+  const location = useLocation();
+  if (auth.isAuthenticated) {
+    const from = location.state?.from;
+    const target = from?.pathname?.startsWith('/') && !from.pathname.startsWith('/authorization') ? from : '/home';
+    return <Navigate to={target} replace />;
+  }
+  return <Outlet />;
+});
+
+const Routing = () => (
+  <>
+    <Navigation />
+    <main className="main" style={{ background: `url(${bg})` }}>
+      <Sidebar />
+      <Routes>
+        <Route element={<RequireAuth />}>
+          <Route index element={<Navigate to="/home" replace />} />
+          <Route path="home" element={<Home />} />
+          <Route path="todo" element={<Todo />} />
+          <Route path="note" element={<Note />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="profile" element={<UserPage />}>
+            <Route path="info" element={<UserInfo />} />
+          </Route>
+        </Route>
+        <Route path="authorization" element={<GuestOnly />}>
+          <Route index element={<Navigate to="login" replace />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+        </Route>
+        <Route path="*" element={<Page404 />} />
+      </Routes>
+    </main>
+    <Footer />
+  </>
+);
 
 export default Routing;

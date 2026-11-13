@@ -1,0 +1,235 @@
+.auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 900px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #bebebe;
+    border-radius: 10px;
+    background: #f7f7f7;
+}
+
+.auth__form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    max-width: 520px;
+    padding: 20px 24px 32px;
+    border-radius: 25px;
+    background-color: rgba(5, 49, 90, 0.5);
+    color: #fff;
+}
+
+.auth__title {
+    font-family: 'Seymour One', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.auth__notice {
+    padding: 10px 14px;
+    border-left: 4px solid #ffcc4d;
+    border-radius: 8px;
+    background-color: rgba(255, 204, 77, 0.18);
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.auth__alert {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background-color: #fde7e7;
+    color: #8a1111;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.auth__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.auth__label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.auth__input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 18px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background-color: rgba(250, 235, 215, 0.9);
+    color: #161616;
+}
+
+.auth__input:focus-visible {
+    outline: none;
+    border-color: #ffcc4d;
+}
+
+.auth__input[aria-invalid='true'] {
+    border-color: #ff6b6b;
+}
+
+.auth__password {
+    position: relative;
+}
+
+.auth__input--password {
+    padding-right: 48px;
+}
+
+.auth__eye {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    display: flex;
+    padding: 6px;
+    border-radius: 6px;
+    background: none;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.auth__eye img {
+    width: 22px;
+    height: 22px;
+}
+
+.auth__eye:focus-visible {
+    outline: 2px solid #ffcc4d;
+}
+
+.auth__error,
+.auth__hint,
+.auth__warning {
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+.auth__error {
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: #fde7e7;
+    color: #8a1111;
+    font-weight: 600;
+}
+
+.auth__error a,
+.auth__alert a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.auth__hint {
+    color: #e5eef7;
+}
+
+.auth__warning {
+    color: #ffd76a;
+    font-weight: 600;
+}
+
+.auth__strength {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 15px;
+}
+
+.auth__meter {
+    height: 6px;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+}
+
+.auth__meter span {
+    display: block;
+    height: 100%;
+    width: 0;
+    transition: width 0.2s, background-color 0.2s;
+}
+
+.auth__meter--1 span { width: 25%; background-color: #ff6b6b; }
+.auth__meter--2 span { width: 50%; background-color: #ffb347; }
+.auth__meter--3 span { width: 75%; background-color: #9be15d; }
+.auth__meter--4 span { width: 100%; background-color: #40ddb6; }
+
+.auth__rules {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 15px;
+    color: #e5eef7;
+}
+
+.auth__rule--ok {
+    color: #9be1c8;
+}
+
+.auth__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.auth__checkbox input {
+    width: 18px;
+    height: 18px;
+}
+
+.auth__button {
+    align-self: center;
+    min-width: 70%;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    border-radius: 50px;
+    background-color: #fff;
+    color: #05315a;
+    cursor: pointer;
+}
+
+.auth__button:hover:not(:disabled) {
+    background-color: #ffcc4d;
+}
+
+.auth__button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.auth__switch {
+    text-align: center;
+    font-size: 17px;
+}
+
+.auth__switch a {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768.98px) {
+    .auth {
+        flex: 0 1 auto;
+    }
+    .auth__form {
+        padding: 16px 16px 24px;
+    }
+}
