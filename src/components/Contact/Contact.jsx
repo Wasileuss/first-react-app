@@ -19,7 +19,7 @@ class Contacts extends React.Component {
 
     render() {
         return (
-            <div className='contacts' style={{ background: `url(${bg})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+            <div className='contacts' style={{ background: `url(${bg})`, backgroundSize: 'contain' }}>
                 <h2 className="title  animate__animated animate__zoomInDown">Contacts</h2>
                 <div className='contacts__content users'>
                     <div className='users__list'>

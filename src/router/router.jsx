@@ -46,7 +46,7 @@ const Routing = observer(() => {
                         <Route element={<Note />} path="/note" />
                         <Route element={<Contact />} path="/contact" />
                     </Route>
-                    <Route element={!isUserLogin.isUserLogin ? <AuthorizationPage /> : <Navigate to={"/profile"} />} path="/authorization">
+                    <Route element={!isUserLogin.isUserLogin ? <AuthorizationPage /> : <Navigate to={"/home"} />} path="/authorization">
                         <Route element={<Login />} path="/authorization/login"/>
                         <Route element={<SignUp />} path="/authorization/signup"/>
                     </Route>

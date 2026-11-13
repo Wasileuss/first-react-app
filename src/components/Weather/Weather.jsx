@@ -6,7 +6,7 @@ function Weather() {
     const [data, setData] = useState(JSON.parse(localStorage.getItem('weatherData')) || {});
     const [city, setCity] = useState('');
 
-    const key = 'd89c6c5d26a948c5f70e5573801bed09';
+    const key = import.meta.env.VITE_WEATHER_API_KEY;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`;
 
     const searchWeather = (e) => {
@@ -76,12 +76,12 @@ function Weather() {
                 </div>
             </div>
             <div className='weather__content'>
-                <h2 className="weather__title">{data.name} {data.sys ? <span>{data.sys.country}</span> : null}</h2>
+                <h2 className="weather__city">{data.name} {data.sys ? <span>{data.sys.country}</span> : null}</h2>
                 <div className='weather__info info'>
                     <div>{data.main ? 
                         <div className='info__temp'>
                             <h2>{data.main.temp.toFixed(1)}°C</h2>
-                            <img className='info__img' src={`http://openweathermap.org/img/wn/${data.weather ? data.weather[0].icon : null}@2x.png`} 
+                            <img className='info__img' src={`https://openweathermap.org/img/wn/${data.weather ? data.weather[0].icon : null}@2x.png`} 
                             alt={data.weather ? data.weather[0].description : null} />
                         </div> : null} 
                     </div>

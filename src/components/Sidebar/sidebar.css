@@ -10,7 +10,7 @@
     background: var(--color-bg);
     min-width: 250px;
     flex: 0 1 300px;
-    max-height: 520px;
+    max-height: 500px;
     height: 100%;
 }
 
@@ -23,7 +23,7 @@
     font-weight: 700;
     color: var(--color-green);
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width: 768.98px) {

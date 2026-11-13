@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./todo.css";
 import dev from "../../assets/images/dev.webp";
 import bg from "../../assets/images/todo-bg.webp";
+import 'animate.css';
 
 
 function Todo() {
@@ -90,7 +91,7 @@ function Todo() {
 	}
 
 	return (
-		<div className="todo" style={{ background: `url(${bg})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+		<div className="todo" style={{ background: `url(${bg})`, backgroundSize: 'contain' }}>
             <h2 className="title  animate__animated animate__zoomInDown">Todo</h2>
             <form className="todo__form form" onSubmit={handleSubmit}>
                 <input
@@ -145,7 +146,7 @@ function Todo() {
                                 {todos.map((todo) => (
                                     <li
                                         key={todo.id}
-                                        className={todo.isComplete ? "task__complete" : ""}>
+                                        className={todo.isComplete ? "task__complete" : " animate__animated animate__backInRight"}>
                                         <span className={todo.isComplete ? "task__complete" : ""}>
                                             {todo.activity}
                                         </span>

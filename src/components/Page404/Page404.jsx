@@ -6,11 +6,11 @@ import './page404.css';
 
 function Page404() {
 	return (
-		<div className="error"  style={{ background: `url(${bg})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
-			<h2 className="error__title title">
+		<div className="err"  style={{ background: `url(${bg})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+			<h2 className="err__title title">
 				Error 404
 			</h2>
-			<p className="error__text">
+			<p className="err__text">
 				Page not found
 			</p>
 		</div>

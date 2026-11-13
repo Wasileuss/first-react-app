@@ -10,7 +10,7 @@ import './styles.css'
 const UserProfile = observer(() => {
     useEffect(() => {
         const email = localStorage.getItem('email')
-        userProfile.setUserProfile({first_name: 'Nicky', email: email})
+        userProfile.setUserProfile({first_name: 'Vasyl', email: email})
     }, []);
     
     return (

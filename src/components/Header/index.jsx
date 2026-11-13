@@ -36,22 +36,26 @@ const Navigation = () => {
 
                 <div className={`nav ${isActive ? 'active' : ''}`}>
                     <div className='nav__menu'>
-                        <ul className={`nav__list list ${isActive ? 'active' : ''}`}  onClick={handleBurgerClick}>
+                        <ul className={`nav__list list ${isActive ? 'active' : ''}`}  
+                        onClick={handleBurgerClick}>
                             {navigation.map(el => (
                             <li key={Math.random() * 100} className=''>
                                 <NavLink
                                     to={el.link}
-                                    className={({ isActive }) => isActive ? 'list__item--active' : "list__item"}>
+                                    className={({ isActive }) => 
+                                    isActive ? 'list__item--active' : "list__item"}>
                                     {el.pageName}
                                 </NavLink>
                                 </li>
                             ))}
-                            <li className='list__icon' key='logout-key' onClick={logout} style={{ color: 'orange'}}>
+                            <li className='list__icon' key='logout-key' onClick={logout} 
+                            style={{ color: 'orange'}}>
                             <BsBoxArrowRight />
                             </li>
                         </ul>
                         <div className={`mobile ${isActive ? 'active' : ''}`}>
-                            <div className={`mobile__burger ${isActive ? 'active' : ''}`} onClick={handleBurgerClick}>
+                            <div className={`mobile__burger ${isActive ? 'active' : ''}`} 
+                            onClick={handleBurgerClick}>
                                 <span></span>
                             </div>
                         </div>

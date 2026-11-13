@@ -12,9 +12,9 @@ import logo2 from "../../assets/icons/logo-cbs.png";
 
 function Home() {
     return(
-        <div className='home' style={{ background: `url(${bg})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+        <div className='home' style={{ background: `url(${bg})`,
+         backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
             <h2 className="title  animate__animated animate__zoomInDown">About</h2>
-            {/* <Title title="Home" /> */}
             <div className='home__container'>
                 <div className='home__content'>
                     <div className='home__info animate__animated animate__backInRight'>

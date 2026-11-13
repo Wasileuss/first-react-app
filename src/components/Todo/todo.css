@@ -8,7 +8,8 @@
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
-    background-color: rgb(220, 218, 152)
+    background-repeat: repeat-y;
+    background-position: top;
 }
 .todo__container {
     display: flex;
@@ -38,6 +39,7 @@
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
+    background-color: #d2d2d2;
 }
 
 .form__msg,
@@ -135,4 +137,8 @@
 .but__uncheck {
     background-color: orange;
     color: var(--color-white);
+}
+
+.animate__hinge {
+    animation-delay: 3s;
 }

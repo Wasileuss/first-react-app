@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# React Multi App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A small multi-page React app: todo list, notes, contacts, user profile and a weather widget, behind a simple login.
 
-## Available Scripts
+Built with React 19, React Router 7, MobX and Vite.
 
-In the project directory, you can run:
+## Getting started
 
-### `npm start`
+```bash
+npm install
+cp .env.example .env   # then put your OpenWeatherMap API key in .env
+npm run dev            # http://localhost:3000
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Test login: `test@gmail.com` / `1234`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Scripts
 
-### `npm test`
+| Command           | What it does                       |
+| ----------------- | ---------------------------------- |
+| `npm run dev`     | Start the dev server               |
+| `npm run build`   | Build for production into `dist/`  |
+| `npm run preview` | Serve the production build locally |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Environment variables
 
-### `npm run build`
+| Name                   | Description                                                |
+| ---------------------- | ---------------------------------------------------------- |
+| `VITE_WEATHER_API_KEY` | [OpenWeatherMap](https://openweathermap.org/api) API key   |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deploy (Netlify)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`netlify.toml` sets the build command (`npm run build`) and publish directory (`dist`).
+`public/_redirects` sends every route to `index.html`, so client-side routing works on refresh.
+Set `VITE_WEATHER_API_KEY` in the site's environment variables, otherwise the weather search won't work.

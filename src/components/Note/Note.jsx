@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import ModalWind from "../Modal/ModalWind";
+// import ModalWind from "../Modal/ModalWind";
 import "./note.css";
 import bg from "../../assets/images/note-bg.webp";
+import 'animate.css';
 
 function Note() {
 	const [notes, setNotes] = useState(
@@ -59,7 +60,7 @@ function Note() {
     };
 
 	return (
-		<div className="note"  style={{ background: `url(${bg})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+		<div className="note"  style={{ background: `url(${bg})`, backgroundSize: 'contain' }}>
 				<div className="note__content">
 					<h2 className="title  animate__animated animate__zoomInDown">Note</h2>
 					<div className="note__enter">
@@ -73,9 +74,9 @@ function Note() {
 							onClick={() => clearAll()}>
 							Clear All
 						</button>
-                        <div className="note__btn--modal">
-                            <ModalWind onClick={clearAll} />
-                        </div>
+                        {/* <div className="note__btn--modal">
+                            <ModalWind />
+                        </div> */}
 					</div>
 				</div>
 				<div className="notes">
@@ -92,7 +93,7 @@ function Note() {
 								<div
 									key={index}
 									className='notes__block'>
-									<div className="notes__content" style={{backgroundColor: note.color}}>
+									<div className="notes__content animate__animated animate__backInUp" style={{backgroundColor: note.color}}>
 										<div className="notes__btn">
                                             <button className="">Save</button>
 											<button

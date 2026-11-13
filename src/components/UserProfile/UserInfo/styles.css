@@ -18,8 +18,8 @@
     align-items: center;
     position: relative;
     color: var(--color-title);
-    background: #bcc5cd;
-    padding: 20px 10px;
+    background: #58738a;
+    padding: 20px;
     max-width: 600px;
     width: 100%;
     border-radius: 20px;
@@ -41,10 +41,14 @@
     display: flex;
     justify-content: space-between;
 }
+.user-info__item label {
+    text-transform: capitalize;
+}
 .user-info__input {
     width: 70%;
     padding: 5px 10px;
     border-radius: 5px;
+    background-color: #c2c2c2;
 }
 .user-info__content__close svg {
     position: absolute;

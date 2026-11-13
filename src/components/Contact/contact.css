@@ -3,6 +3,8 @@
 .contacts {
     display: flex;
     flex-direction: column;
+    background-repeat: repeat-y;
+    background-position: top;
 }
 
 .contacts__content {

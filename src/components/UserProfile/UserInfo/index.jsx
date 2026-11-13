@@ -62,7 +62,7 @@ const UserInfo = observer(() => {
           <li className="user-info__item">
             <label htmlFor="email">email</label>
             <input className="user-info__input"
-              type="text"
+              type="email"
               name="email"
               value={userInfo.email}
               onChange={changeUserInfo}
@@ -71,7 +71,7 @@ const UserInfo = observer(() => {
           <li className="user-info__item">
             <label htmlFor="phone">phone</label>
             <input className="user-info__input"
-              type="text"
+              type="number"
               name="phone"
               value={userInfo.phone}
               onChange={changeUserInfo}

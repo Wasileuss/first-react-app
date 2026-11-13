@@ -1,5 +1,7 @@
 import React from "react";
 import User from "./User";
+import "./contact.css";
+import 'animate.css';
 
 class Users extends React.Component {
     render() {
@@ -16,7 +18,7 @@ class Users extends React.Component {
         else
             return (
                 <div>
-                    <p className="contacts__msg">No contacts found.</p>
+                    <p className="contacts__msg animate__animated animate__hinge">No contacts found.</p>
                 </div>
             );
     }
