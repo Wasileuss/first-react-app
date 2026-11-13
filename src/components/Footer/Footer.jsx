@@ -38,7 +38,7 @@ export default function Footer() {
         <div className="footer__copyright copyright">
           <p className="copyright__text">Copyright © {year} All rights reserved</p>
           <p>
-            <ExternalLink href="https://cv-vasyl-bezkorovainyi.netlify.app/" className="copyright__link">
+            <ExternalLink href="https://webuicreator.vercel.app/" className="copyright__link">
               Created by Wasileuss
             </ExternalLink>
           </p>
